@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Session token:</strong>
+  <%= @email.session_token %>
+</p>
+
+<p>
+  <strong>Password digest:</strong>
+  <%= @email.password_digest %>
+</p>
+
+<%= link_to 'Edit', edit_email_path(@email) %> |
+<%= link_to 'Back', emails_path %>
