@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::Base
 
-  helper_method :current_user, :logger_in?
+  helper_method :current_user, :logged_in?
 
   private
 
   def require_login
-    logged_in?
+    redirect_to login_path unless logged_in?
   end
 
   def current_user
