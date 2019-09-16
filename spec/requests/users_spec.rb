@@ -21,6 +21,12 @@ RSpec.describe "Users", type: :request do
         post users_path, params: { user: valid_attributes }
         expect(response).to redirect_to(User.last)
       end      
+
+      # セッションがただしいこと
+      it 'session variable to the right value' do
+        post users_path, params: { user: valid_attributes }
+        expect(session[:user_id]).to eq(User.last.id)
+      end      
     end
 
     # 不正なパラメータ、このケースではemailがnil
